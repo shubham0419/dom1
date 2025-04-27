@@ -1,31 +1,16 @@
 const categorySelect = document.getElementById("category");
+const categories = [
+  { id: 1, name: "Technology" },
+  { id: 2, name: "Travel" },
+  { id: 3, name: "Food" },
+  { id: 4, name: "Lifestyle" },
+  { id: 5, name: "Business" },
+];
 
-fetchCategories();
+populateCategoryDropdown()
 
-function fetchCategories() {
-  axios
-    .get("/api/categories")
-    .then((response) => {
-      populateCategoryDropdown(response.data);
-    })
-    .catch((error) => {
-      console.error("Error fetching categories:", error);
-
-      const dummyCategories = [
-        { id: 1, name: "Technology" },
-        { id: 2, name: "Travel" },
-        { id: 3, name: "Food" },
-        { id: 4, name: "Lifestyle" },
-        { id: 5, name: "Business" },
-      ];
-      populateCategoryDropdown(dummyCategories);
-    })
-    .finally(() => {
-      toggleLoading(false);
-    });
-}
-
-function populateCategoryDropdown(categories) {
+function populateCategoryDropdown() {
+  
   while (categorySelect.options.length > 1) {
     categorySelect.remove(1);
   }

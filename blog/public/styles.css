@@ -163,21 +163,6 @@ button:hover {
   color: #3498db;
 }
 
-.navbar-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  background: #3498db;
-  color: #fff;
-  transition: all 0.3s ease;
-}
 
 .navbar-button:hover {
   background: #2980b9;
