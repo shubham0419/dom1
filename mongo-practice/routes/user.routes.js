@@ -22,8 +22,8 @@ router.post("/register",async(req,res)=>{
 
 router.post("/login",async(req,res)=>{
   const {email,password} = req.body;
-
   const user = await User.findOne({email});
+
   if(!user){
     return res.status(400).json({message:"email or password is invalid"});
   }
@@ -34,7 +34,7 @@ router.post("/login",async(req,res)=>{
     return res.status(400).json({message:"email or password is invalid"});
   }
 
-  const token = jwt.sign({name:user.name,email:user.email,id:user._id},"this is a secret for my app",{expiresIn:"1d"});
+  const token = jwt.sign({name:user.name,email:user.email,id:user._id,role:user.role},"this is a secret for my app",{expiresIn:"1d"});
 
   res.status(200).json({message:"user created successfully",token,user})
 

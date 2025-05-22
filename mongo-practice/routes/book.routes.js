@@ -1,8 +1,9 @@
 const express = require("express");
 const Book = require("../model/book.model");
+const isLoggedin = require("../middleware");
 const router = express.Router();
 
-router.post("/create",async(req,res)=>{
+router.post("/create",isLoggedin,async(req,res)=>{
   const {name,author} = req.body;
 
   if(!name || !author){
